@@ -4,34 +4,46 @@
 
 用法:
 
-./organize_by_date.sh source_directory dest_directory [trash]
+./organize_by_date.sh source_dir photo_base_dir     # dry run
+
+./organize_by_date.sh source_dir photo_base_dir -y  # run
 
 举例:
 
-./organize_by_date.sh ~/Pictures ./repo
+./organize_by_date.sh ~/Pictures ./repo     # 查看执行效果
 
-照片会被放到这样的目录中：./repo/2017/2017-01/.
+./organize_by_date.sh ~/Pictures ./repo -y  # 确认执行
 
-而重复的文件放在./trash目录, 请检查后手工删除.
+照片会被放到这样的目录中：./repo/2017/01/.
 
-软件包'exiv2'用来提取照片真实日期. 在Ubuntu上安装:
+*请注意: 如果确认执行, 那么重复的文件会被删除!*
 
-sudo apt install exiv2
+软件包exiv2和libimage-exiftool-perl用来提取照片和视频上的真实日期. 在Ubuntu上安装:
+
+sudo apt install -y exiv2
+
+sudo apt install -y libimage-exiftool-perl
 
 -----------------------------------
 
 Usages:
 
-./organize_by_date.sh source_directory dest_directory [trash]
+./organize_by_date.sh source_dir photo_base_dir # dry run
+
+./organize_by_date.sh source_dir photo_base_dir -y # run
 
 Example:
 
-./organize_by_date.sh ~/Pictures ./repo
+./organize_by_date.sh ~/Pictures ./repo # dry run
 
-It will move the photos into directories like ./repo/2017/2017-01/.
+./organize_by_date.sh ~/Pictures ./repo -y # confirm to run
 
-Duplicate files are put into ./trash, which should be examined and manually removed later.
+It will move the photos into directories like ./repo/2017/01/.
 
-The package 'exiv2' is used to help extract the real date of the photo. To install it on Ubuntu:
+*Caution: Duplicate files will be removed if confirmed to run!*
 
-sudo apt install exiv2
+The package 'exiv2' and 'libimage-exiftool-perl' are used to help extract the real date of the photo. To install them on Ubuntu:
+
+sudo apt install -y exiv2
+
+sudo apt install -y libimage-exiftool-perl
